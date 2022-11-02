@@ -7,8 +7,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 //Import Bottom Tab Navigation
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //Import Icon
+import {Ionicons} from '@expo/vector-icons';
 
 // Import Theme Native Base
 import { useTheme } from "native-base";
@@ -22,8 +24,43 @@ import IncDec from "./src/screens/incDec";
 const Stack = createStackNavigator();
 
 //Create Bottom Tab Navigation
+const Tab = createBottomTabNavigator()
 
 // Create Component Bottom Tab Navigation
+const MyTab = () => {
+  return(
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={({route}) => ({
+        headerMode: "screen",
+        headerTintColor: "indigo",
+        headerStyle: {backgroundColor: "pink"},
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName
+
+          if(route.name === "Hello"){
+            iconName = focused ? "home" : "home-outline"
+          } else if(route.name === "Form"){
+            iconName = focused ? "document-text" : "document-text-outline"
+          }
+
+          return <Ionicons name={iconName} size={20} color="orange" />
+        },
+        tabBarActiveTintColor: "red",
+        tabBarInactiveTintColor: "blue"
+
+      })}
+      
+    >
+
+      <Tab.Screen name="Hello" component={Hello} />
+      <Tab.Screen name="Form" component={FormNativeBase} />
+    
+    </Tab.Navigator>
+  )
+}
+
+
 
 export default function Container() {
   // Init Theme
@@ -31,19 +68,12 @@ export default function Container() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerMode: "screen",
-          headerTintColor: "white",
-          headerStyle: { backgroundColor: theme.colors.primary["300"] },
-        }}
-      >
+      <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={Hello}
+          name="Main"
+          component={MyTab}
           options={{
-            title: "Hello Screen",
+            headerShown: false,
           }}
         />
         <Stack.Screen
@@ -51,6 +81,8 @@ export default function Container() {
           component={IncDec}
           options={{
             title: "Increment Decrement",
+            headerTintColor: "red",
+            headerMode: "screen"
           }}
         />
       </Stack.Navigator>
