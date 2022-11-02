@@ -1,4 +1,7 @@
+import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -12,23 +15,35 @@ import { ListItem, Avatar } from "react-native-elements";
 // Import Axios
 
 const PostDetail = (props) => {
-  //init Props
 
-  //Init State
+  console.log(props);
 
+  const [products, setProducts] = useState([])
+
+
+  const getProducts = async() => {
+    try {
+      const response = await axios.get(`https://api.kontenbase.com/query/api/v1/09c6558b-c159-4430-a53b-93febb96bca5/products/${props.route.params}`)
+      console.log(response.data);
+      setProducts(response.data)
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
   // Create LifeCycle
-  //Function Exception
+  useEffect(() => {
+    getProducts()
+  }, [])
 
-  // Create Function to fetch
 
-  //   Create Component List
   return (
     <View style={style.container}>
       <Text h2 style={{ fontWeight: "bold" }}>
         This Is Post Detail
       </Text>
-      {/* Implement Axios Here */}
-      {/* Render Component List */}
+      <Text>{products.name}</Text>
+      <Text>{products.price}</Text>
     </View>
   );
 };

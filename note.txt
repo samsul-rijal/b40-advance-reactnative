@@ -1,0 +1,14 @@
+### React Navigation
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+
+## Stack Navigator
+npm install @react-navigation/stack
+npx expo install react-native-gesture-hansdler
+
+## Bottom Tabs
+npm install @react-navigation/bottom-tabs
+
+
+Icon
+npm i @expo/vector-icons
