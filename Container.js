@@ -6,8 +6,6 @@ import { NavigationContainer } from "@react-navigation/native";
 // Import Stack Navigation
 import { createStackNavigator } from '@react-navigation/stack';
 
-// Import Theme Native Base
-
 // Import Screen
 import FormNativeBase from "./src/screens/formNativeBase";
 import Hello from "./src/screens/hello";
@@ -17,7 +15,6 @@ import IncDec from "./src/screens/incDec";
 const Stack = createStackNavigator();
 
 export default function Container() {
-  // Init Theme
   return(
     <NavigationContainer>
       <Stack.Navigator>
