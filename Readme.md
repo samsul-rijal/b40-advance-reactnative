@@ -7,7 +7,7 @@ npx expo install react-native-screens react-native-safe-area-context
 ## Stack Navigator
 ```bash
 npm install @react-navigation/stack
-npx expo install react-native-gesture-hansdler
+npx expo install react-native-gesture-handler
 ```
 
 ## Bottom Tabs
