@@ -9,6 +9,13 @@ npx expo install react-native-gesture-hansdler
 ## Bottom Tabs
 npm install @react-navigation/bottom-tabs
 
-
-Icon
+##Icon
 npm i @expo/vector-icons
+
+##Reference Auth
+https://github.com/samsul-rijal/auth-react-native
+
+##Reference Tailwind
+https://github.com/rijal-samsul/rn-movie-app
+https://www.npmjs.com/package/tailwindcss-react-native
+https://www.nativewind.dev/quick-starts/expo
